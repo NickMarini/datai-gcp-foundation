@@ -1,6 +1,6 @@
 terraform {
   backend "gcs" {
-    bucket = "datai-tf-state-${var.project_id}"
+    bucket = "datai-tf-state-datai-core"
     prefix = "terraform/state"
   }
 }
