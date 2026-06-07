@@ -5,8 +5,8 @@ resource "google_dns_record_set" "firebase_txt" {
   type         = "TXT"
   ttl          = 300
   
-  # This public token is completely safe to expose
-  rrdatas      = ["\"firebase=YOUR_VERIFICATION_STRING_HERE\""] 
+  # This public token is the TXT
+  rrdatas      = ["\"hosting-site=datai-core\""] 
 }
 
 # 2. The Traffic Routing (IP Addresses)
