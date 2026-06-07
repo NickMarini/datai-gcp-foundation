@@ -6,7 +6,7 @@ resource "google_dns_record_set" "firebase_txt" {
   ttl          = 300
 
   # This public token is the TXT
-  rrdatas = ["\"hosting-site=datai-core\""]
+  rrdatas = ["\"hosting-site=datai-portfolio-prod\""]
 }
 
 # 2. The Traffic Routing (IP Addresses)
@@ -28,7 +28,7 @@ resource "google_dns_record_set" "firebase_dev_cname" {
   managed_zone = "datai-zone"
   type         = "CNAME"
   ttl          = 300
-  
+
   # Use the exact value provided by the console (remember the trailing period)
-  rrdatas      = ["datai-portfolio-dev.web.app."] 
+  rrdatas = ["datai-portfolio-dev.web.app."]
 }
