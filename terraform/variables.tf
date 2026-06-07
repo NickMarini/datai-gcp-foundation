@@ -8,3 +8,20 @@ variable "region" {
   type        = string
   default     = "europe-west6"
 }
+
+variable "environment" {
+  description = "Deployment environment (dev or prod)"
+  type        = string
+  default     = "dev"
+
+  validation {
+    condition     = contains(["dev", "prod"], var.environment)
+    error_message = "Environment must be 'dev' or 'prod'."
+  }
+}
+
+variable "domain_name" {
+  description = "The apex domain name for the infrastructure"
+  type        = string
+  default     = "datai.ch"
+}
