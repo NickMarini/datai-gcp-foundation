@@ -1,11 +1,7 @@
-name: Deploy Prod
+name: Deploy Dev
 
 on:
-  # Auto-deploy prod on every push to main
-  push:
-    branches:
-      - main
-  # Also runnable manually from the Actions tab
+  # Manual-only — dev is never deployed automatically
   workflow_dispatch:
 
 permissions:
@@ -14,7 +10,7 @@ permissions:
 
 jobs:
   terraform:
-    name: "Terraform Apply [prod]"
+    name: "Terraform Apply [dev]"
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -36,7 +32,7 @@ jobs:
         terraform_version: 1.7.0
 
     - name: Terraform Init
-      run: terraform init -backend-config="prefix=terraform/state/prod"
+      run: terraform init -backend-config="prefix=terraform/state/dev"
 
     - name: Terraform Format Check
       run: terraform fmt -check
@@ -46,9 +42,8 @@ jobs:
         terraform plan \
           -var="project_id=${{ vars.GCP_PROJECT_ID }}" \
           -var="region=${{ vars.GCP_REGION }}" \
-          -var="environment=prod" \
+          -var="environment=dev" \
           -out=tfplan
 
     - name: Terraform Apply
       run: terraform apply -auto-approve tfplan
-

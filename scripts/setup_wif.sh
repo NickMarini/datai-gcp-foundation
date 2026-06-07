@@ -16,7 +16,7 @@ set -e
 # ==============================================================================
 # 1. Configuration Variables (Update these for new projects)
 # ==============================================================================
-PROJECT_ID="your-project-id-here"
+PROJECT_ID="dataio-dev"  # GCP project where the SA and WIF resources will be created
 GITHUB_REPO="YOUR_USERNAME/datai-infrastructure"
 SA_NAME="github-deployer"
 POOL_NAME="github-pool"
