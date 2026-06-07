@@ -6,7 +6,7 @@ resource "google_dns_record_set" "firebase_txt" {
   ttl          = 300
 
   # This public token is the TXT
-  rrdatas = ["\"hosting-site=datai-core\""]
+  rrdatas = ["\"hosting-site=datai-portfolio-prod\""]
 }
 
 # 2. The Traffic Routing (IP Addresses)
