@@ -21,3 +21,14 @@ resource "google_dns_record_set" "firebase_a" {
     "199.36.158.100"
   ]
 }
+
+# 3. Subdomain Routing (CNAME for www)
+resource "google_dns_record_set" "firebase_dev_cname" {
+  name         = "dev.${var.domain_name}." # Resolves to dev.datai.ch.
+  managed_zone = "datai-zone"
+  type         = "CNAME"
+  ttl          = 300
+  
+  # Use the exact value provided by the console (remember the trailing period)
+  rrdatas      = ["datai-portfolio-dev.web.app."] 
+}
