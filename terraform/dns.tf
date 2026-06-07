@@ -4,9 +4,9 @@ resource "google_dns_record_set" "firebase_txt" {
   managed_zone = "datai-zone"
   type         = "TXT"
   ttl          = 300
-  
+
   # This public token is the TXT
-  rrdatas      = ["\"hosting-site=datai-core\""] 
+  rrdatas = ["\"hosting-site=datai-core\""]
 }
 
 # 2. The Traffic Routing (IP Addresses)
@@ -15,9 +15,9 @@ resource "google_dns_record_set" "firebase_a" {
   managed_zone = "datai-zone"
   type         = "A"
   ttl          = 300
-  
+
   # Public IPs
-  rrdatas      = [
+  rrdatas = [
     "199.36.158.100"
   ]
 }
